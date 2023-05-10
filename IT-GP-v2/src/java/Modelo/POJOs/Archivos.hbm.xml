@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-may-2023 5:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="it_proyect" name="Modelo.POJOs.Archivos" optimistic-lock="version" table="archivos">
+    <id name="idArchivo" type="java.lang.Integer">
+      <column name="IdArchivo"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Modelo.POJOs.Proyecto" fetch="join" name="proyecto">
+      <column name="IdProyecto" not-null="true"/>
+    </many-to-one>
+    <property name="documento" type="binary">
+      <column name="Documento" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

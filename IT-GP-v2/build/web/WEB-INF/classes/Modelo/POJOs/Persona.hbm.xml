@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-may-2023 5:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="it_proyect" name="Modelo.POJOs.Persona" optimistic-lock="version" table="persona">
+    <id name="idPersona" type="java.lang.Integer">
+      <column name="IdPersona"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column name="Nombre" not-null="true"/>
+    </property>
+    <property name="apellidos" type="string">
+      <column name="Apellidos" not-null="true"/>
+    </property>
+    <property name="dni" type="string">
+      <column length="9" name="DNI" not-null="true"/>
+    </property>
+    <property name="admin" type="boolean">
+      <column name="Admin" not-null="true"/>
+    </property>
+    <property name="usuario" type="string">
+      <column name="Usuario" not-null="true" unique="true"/>
+    </property>
+    <property name="password" type="string">
+      <column name="Password" not-null="true"/>
+    </property>
+    <set fetch="join" inverse="true" lazy="false" name="participacions" table="participacion">
+      <key>
+        <column name="IdPersona" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Participacion"/>
+    </set>
+    <set fetch="join" inverse="true" lazy="false" name="envios" table="envio">
+      <key>
+        <column name="IdPersona" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Envio"/>
+    </set>
+  </class>
+</hibernate-mapping>

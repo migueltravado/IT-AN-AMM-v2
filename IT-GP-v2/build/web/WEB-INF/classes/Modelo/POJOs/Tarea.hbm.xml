@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-may-2023 5:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="it_proyect" name="Modelo.POJOs.Tarea" optimistic-lock="version" table="tarea">
+    <id name="idTarea" type="java.lang.Integer">
+      <column name="IdTarea"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Modelo.POJOs.Participacion" lazy="false" fetch="join" name="participacion">
+      <column name="IdParticipacion" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="Modelo.POJOs.Tarea" lazy="false" fetch="join" name="tarea">
+      <column name="IdTareaPredecesora"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column name="Nombre" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="Descripcion"/>
+    </property>
+    <property name="fechaInicio" type="date">
+      <column length="10" name="FechaInicio" not-null="true"/>
+    </property>
+    <property name="fechaFin" type="date">
+      <column length="10" name="FechaFin"/>
+    </property>
+    <property name="completado" type="boolean">
+      <column name="Completado" not-null="true"/>
+    </property>
+    <set fetch="join" inverse="true" lazy="false" name="tareas" table="tarea">
+      <key>
+        <column name="IdTareaPredecesora"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Tarea"/>
+    </set>
+  </class>
+</hibernate-mapping>

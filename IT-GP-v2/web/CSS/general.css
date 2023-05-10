@@ -1,0 +1,52 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-may-2023, 12:52:56
+    Author     : miguel.travado
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body {
+    margin: 0 auto; /* margin-top: 0 y margin-bottom: 0, margin-left y margin-right centrados automáticamente */
+    max-width: 960px; /* Ancho máximo del contenedor */
+    padding: 0 20px; /* Espacio interno alrededor del contenido */
+    font-family: 'Open Sans', sans-serif;
+}
+
+table.table-style{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+table.table-style tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Cambiar el color de fondo según sea necesario */
+}
+
+table.table-style td, table.table-style th {
+    border: none;
+    padding: 8px; /* Ajustar el relleno según sea necesario */
+}
+
+
+.header, .buttons-list {
+    display: block;
+    margin: 0;
+}
+
+.header div,  .buttons-list div{
+    display: inline-block;
+    margin: 0;
+}
+
+div.peg {
+    padding: 5px 3px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Añade esquinas redondeadas para un aspecto más elegante */
+}
+

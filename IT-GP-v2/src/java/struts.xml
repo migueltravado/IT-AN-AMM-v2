@@ -1,0 +1,103 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="loginAction" class="Controlador.Actions.LoginAction">
+            <result type="chain" name="success">
+                <param name="actionName">cargaProyectos</param>
+            </result>
+            <result name="input">loginView.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="proyecto" extends="struts-default">
+        <action name="cargaProyectos" class="Controlador.Actions.CargaProyectosAction">
+            <result name="success">initProyectos.jsp</result>
+        </action>
+        <action name="visualizarProyectos" class="Controlador.Actions.VisualizarProyectoAction">
+            <result name="success">proyectoView.jsp</result>
+        </action>
+        <action name="eliminarProyecto" class="Controlador.Actions.EliminarProyectoAction">
+            <result type="chain" name="success">
+                <param name="actionName">cargaProyectos</param>
+            </result>
+        </action>
+        <action name="editarProyecto" class="Controlador.Actions.EditarProyectoAction">
+            <result type="chain" name="success">
+                <param name="actionName">cargaProyectos</param>
+            </result>
+            <result name="input">proyectoEdicionFormView.jsp</result>
+        </action>
+        <action name="formularioProyecto" class="Controlador.Actions.VisualizarProyectoAction" method="goToCrearProyecto">
+            <result name="success">proyectoFormView.jsp</result>
+        </action>
+        <action name="crearProyecto" class="Controlador.Actions.CreacionProyectoAction">
+            <result type="chain" name="success">
+                <param name="actionName">cargaProyectos</param>
+            </result>
+            <result name="input">proyectoFormView.jsp</result>
+        </action>
+        <action name="formularioEdicionProyecto" class="Controlador.Actions.VisualizarProyectoAction" method="goToEditarProyecto">
+            <result name="success">proyectoEdicionFormView.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="persona" extends="struts-default">
+        <action name="cargaPersonasAdmin" class="Controlador.Actions.CargaPersonasAdminAction">
+            <result name="success">personasView.jsp</result>
+        </action>
+        <action name="cargaPersonas" class="Controlador.Actions.CargarPersonasParticipacionAction">
+            <result name="success">busquedaPersonaParticipacionView.jsp</result>
+        </action>
+        <action name="busquedaPersonaParticipacion" class="Controlador.Actions.BusquedaPersonaParticipacionAction">
+            <result name="success">busquedaPersonaParticipacionView.jsp</result>
+            <result name="input">busquedaPersonaParticipacionView.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="participacion" extends="struts-default">
+        <action name="formularioParticipacion" class="Controlador.Actions.FormularioParticipacionAction">
+            <result name="success">adicionParticipacionView.jsp</result>
+        </action>
+        <action name="adicionParticipacion" class="Controlador.Actions.AdicionParticipacionAction">
+            <result type="chain" name="success">
+                <param name="actionName">visualizarProyectos</param>
+            </result>
+            <result name="input">adicionParticipacionView.jsp</result>
+        </action>
+    </package>
+    
+    
+    <package name="tarea" extends="struts-default">
+        <action name="checkTarea" class="Controlador.Actions.CheckTareaAction">
+            <result name="success" type="chain">
+                <param name="actionName">visualizarProyectos</param>
+            </result>
+            <result name="input" type="redirectAction">
+                <param name="actionName">visualizarProyectos</param>
+                <param name="idProyecto">${idProyecto}</param>
+            </result>
+        </action>
+        <action name="formularioTarea" class="Controlador.Actions.FormularioTareaAction">
+            <result name="success">adicionTareaView.jsp</result>
+        </action>
+        <action name="adicionTarea" class="Controlador.Actions.AdicionTareaAction">
+            <result type="chain" name="success">
+                <param name="actionName">visualizarProyectos</param>
+            </result>
+            <result name="input">adicionTareaView.jsp</result>
+        </action>
+    </package>
+    
+    <package name="roles" extends="struts-default">
+        <action name="cargaRoles" class="">
+            
+        </action>
+    </package>
+</struts>

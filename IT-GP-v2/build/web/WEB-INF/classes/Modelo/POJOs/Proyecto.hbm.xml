@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-may-2023 5:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="it_proyect" name="Modelo.POJOs.Proyecto" optimistic-lock="version" table="proyecto">
+    <id name="idProyecto" type="java.lang.Integer">
+      <column name="IdProyecto"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="Modelo.POJOs.Foro" fetch="select" name="foro">
+      <column name="IdForo" unique="true"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column name="Nombre" not-null="true"/>
+    </property>
+    <property name="fechaInicio" type="date">
+      <column length="10" name="FechaInicio" not-null="true"/>
+    </property>
+    <property name="fechaFin" type="date">
+      <column length="10" name="FechaFin" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="Descripcion" not-null="true"/>
+    </property>
+    <set fetch="join" inverse="true" lazy="false" name="informes" table="informe">
+      <key>
+        <column name="IdProyecto" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Informe"/>
+    </set>
+    <set fetch="join" inverse="true" lazy="false" name="archivoses" table="archivos">
+      <key>
+        <column name="IdProyecto" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Archivos"/>
+    </set>
+    <set fetch="join" inverse="true" lazy="false" name="foros" table="foro">
+      <key>
+        <column name="IdProyecto" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Foro"/>
+    </set>
+    <set fetch="join" inverse="true" lazy="false" name="participacions" table="participacion">
+      <key>
+        <column name="IdProyecto" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Participacion"/>
+    </set>
+  </class>
+</hibernate-mapping>

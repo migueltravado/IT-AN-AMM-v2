@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-may-2023 5:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="it_proyect" name="Modelo.POJOs.Rol" optimistic-lock="version" table="rol">
+    <id name="idRol" type="java.lang.Integer">
+      <column name="IdRol"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column name="Nombre" not-null="true"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column name="Descripcion"/>
+    </property>
+    <property name="acceso" type="java.lang.Integer">
+      <column name="Acceso"/>
+    </property>
+    <set fetch="join" inverse="true" lazy="false" name="participacions" table="participacion">
+      <key>
+        <column name="IdRol" not-null="true"/>
+      </key>
+      <one-to-many class="Modelo.POJOs.Participacion"/>
+    </set>
+  </class>
+</hibernate-mapping>
