@@ -5,7 +5,10 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <!-- Acceso a la aplicación, con verificación de usuario -->
         <action name="loginAction" class="Controlador.Actions.LoginAction">
+            <!-- En caso de ser correcto el usuario y la contraseña, se cargarán
+            los proyectos dependiendo de si el usuario es admin o no -->
             <result type="chain" name="success">
                 <param name="actionName">cargaProyectos</param>
             </result>
@@ -13,58 +16,88 @@
         </action>
     </package>
     
-    
+    <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
+    entidad Proyecto -->
     <package name="proyecto" extends="struts-default">
+        <!-- Acción que carga los proyectos según si el usuario es admin o no. Si es admin
+        cargará todos los proyectos. En cambio, si no es admin, cargará únicamente los proyectos
+        en los que participe -->
         <action name="cargaProyectos" class="Controlador.Actions.CargaProyectosAction">
             <result name="success">initProyectos.jsp</result>
         </action>
+        <!-- Acción que carga el proyecto seleccionado y las tareas asociadas a el. Si el usuario 
+        es admin, entonces cargará todas las tareas del proyecto. Si no lo es, cargará únicamente las tareas
+        que se les ha encargado -->
         <action name="visualizarProyectos" class="Controlador.Actions.VisualizarProyectoAction">
             <result name="success">proyectoView.jsp</result>
         </action>
+        <!-- Acción para la eliminación de un proyecto -->
         <action name="eliminarProyecto" class="Controlador.Actions.EliminarProyectoAction">
             <result type="chain" name="success">
                 <param name="actionName">cargaProyectos</param>
             </result>
         </action>
+        <!-- Acción para la edición de un proyecto, con los nuevos datos recibidos desde un formulario -->
         <action name="editarProyecto" class="Controlador.Actions.EditarProyectoAction">
+            <!-- En el caso en el que la validación sea correcta y se ejecute el método execute,
+            volveremos a la página .jsp donde se muestran todos los proyectos, de forma que 
+            aparezca el incluido recientemente. Para ello es necesaria la ejecución de la 
+            acción "cargaProyectos" -->
             <result type="chain" name="success">
                 <param name="actionName">cargaProyectos</param>
             </result>
             <result name="input">proyectoEdicionFormView.jsp</result>
         </action>
+        <!-- Acción que redirige al .jsp que contiene el formulario parala creación de proyectos -->
         <action name="formularioProyecto" class="Controlador.Actions.VisualizarProyectoAction" method="goToCrearProyecto">
             <result name="success">proyectoFormView.jsp</result>
         </action>
+        <!-- Acción que crea un proyecto nuevo -->
         <action name="crearProyecto" class="Controlador.Actions.CreacionProyectoAction">
             <result type="chain" name="success">
                 <param name="actionName">cargaProyectos</param>
             </result>
             <result name="input">proyectoFormView.jsp</result>
         </action>
+        <!-- Acción que redirige al .jsp que contiene el formulario parala creación de proyectos,
+        pasando por parámetro el proyecto en sí -->
         <action name="formularioEdicionProyecto" class="Controlador.Actions.VisualizarProyectoAction" method="goToEditarProyecto">
             <result name="success">proyectoEdicionFormView.jsp</result>
         </action>
     </package>
     
-    
+    <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
+    entidad Persona -->
     <package name="persona" extends="struts-default">
+        <!-- Acción que se encarga de cargar en una lista todas las personas de la BBDD.
+        Tiene en su nombre "Admin" ya que es una funcionalidad exclusiva de 
+        administradores (poder visualizar todas las persoans de la empresa) -->
         <action name="cargaPersonasAdmin" class="Controlador.Actions.CargaPersonasAdminAction">
             <result name="success">personasView.jsp</result>
         </action>
+        <!-- Acción destinada a la carga de personas en una lista que NO participen en un proyecto
+        en concreto. Es necesaria para cuando se quiere realizar una adicción de una
+        participación nueva al proyecto -->
         <action name="cargaPersonas" class="Controlador.Actions.CargarPersonasParticipacionAction">
             <result name="success">busquedaPersonaParticipacionView.jsp</result>
         </action>
+        <!-- Acción para la búsqueda de personas que no participan en un proyecto. Es necesaria
+        cuando se quierre añadir una participación al proyecto, que no aparezcan -->
         <action name="busquedaPersonaParticipacion" class="Controlador.Actions.BusquedaPersonaParticipacionAction">
             <result name="success">busquedaPersonaParticipacionView.jsp</result>
             <result name="input">busquedaPersonaParticipacionView.jsp</result>
         </action>
     </package>
     
-    
+    <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
+    entidad Participacion -->
     <package name="participacion" extends="struts-default">
+        <!-- Acción para redirigir al formulario de participación, en la que se carga
+        ciertos datos necesarios que son utilizados en el mismo formulario. -->
         <action name="formularioParticipacion" class="Controlador.Actions.FormularioParticipacionAction">
             <result name="success">adicionParticipacionView.jsp</result>
         </action>
+        <!-- Acción para la validación y guardado de la participación nueva -->
         <action name="adicionParticipacion" class="Controlador.Actions.AdicionParticipacionAction">
             <result type="chain" name="success">
                 <param name="actionName">visualizarProyectos</param>
@@ -73,8 +106,11 @@
         </action>
     </package>
     
-    
+    <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
+    entidad Tarea -->
     <package name="tarea" extends="struts-default">
+        <!-- Acción para checkear la realización de una tarea. Se valida por su
+        tarea predecesora (debe estar realizada) -->
         <action name="checkTarea" class="Controlador.Actions.CheckTareaAction">
             <result name="success" type="chain">
                 <param name="actionName">visualizarProyectos</param>
@@ -84,9 +120,11 @@
                 <param name="idProyecto">${idProyecto}</param>
             </result>
         </action>
+        <!-- Acción que redirige al formulario de una tarea -->
         <action name="formularioTarea" class="Controlador.Actions.FormularioTareaAction">
             <result name="success">adicionTareaView.jsp</result>
         </action>
+        <!-- Acción para la validación y adición de una nueva tarea -->
         <action name="adicionTarea" class="Controlador.Actions.AdicionTareaAction">
             <result type="chain" name="success">
                 <param name="actionName">visualizarProyectos</param>
@@ -95,6 +133,8 @@
         </action>
     </package>
     
+    <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
+    entidad Rol -->
     <package name="roles" extends="struts-default">
         <action name="cargaRoles" class="">
             
