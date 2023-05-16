@@ -17,28 +17,33 @@ import java.util.List;
  * @author miguel.travado
  */
 public class BusquedaPersonaParticipacionAction extends ActionSupport {
+
     private int idProyecto;
     private int idPersona;
     private Persona persona;
     private List<Persona> listaPersona;
-    
+
     public BusquedaPersonaParticipacionAction() {
     }
-    
+
     public String execute() throws Exception {
         setListaPersona(new ArrayList<>());
-        if(getPersona() != null)
+        if (getPersona() != null) {
             getListaPersona().add(persona);
+        }
         return SUCCESS;
     }
-    
-    public void validate(){
+
+    public void validate() {
         PersonaDAO daoPersona = new PersonaDAO();
         setPersona(daoPersona.getPersonaId(idPersona));
-        if(getPersona() == null) {}
-        else if(getPersona().isAdmin()){
-            //INTERNACIONALIZAR
-            addFieldError("idPersona", "La persona no puede ser un administrador");
+        if (getPersona() != null) {
+            if (getPersona().isAdmin()) {
+                //INTERNACIONALIZAR
+                addFieldError("idPersona", "La persona no puede ser un administrador");
+            }
+            // AÑADIR VALIDACIÓN PARA QUE NO BUSQUE UNA PERSONA QUE YA ESTÉ 
+            // COMO PARTICIPANTE EN EL PROYECTO 
         }
     }
 
@@ -73,5 +78,5 @@ public class BusquedaPersonaParticipacionAction extends ActionSupport {
     public void setListaPersona(List<Persona> listaPersona) {
         this.listaPersona = listaPersona;
     }
-    
+
 }
