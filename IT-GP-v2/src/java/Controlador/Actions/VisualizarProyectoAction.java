@@ -33,23 +33,37 @@ public class VisualizarProyectoAction extends ActionSupport {
     public VisualizarProyectoAction() {
     }
 
+    /**
+     * Método que permite la visualización de un proyecto y sus tareas
+     * @return
+     * @throws Exception 
+     */
     @Override
     public String execute() throws Exception {
+        // DAOs necesarios para la obtención de instancias desde la persistencia
         ProyectoDAO daoProyecto = new ProyectoDAO();
         TareaDAO daoTarea = new TareaDAO();
         ParticipacionDAO daoParticipacion = new ParticipacionDAO();
+        // Definición del proyecto en cuestión
         setProyecto(daoProyecto.getProyecto(getIdProyecto()));
         Map session = (Map) ActionContext.getContext().getSession();
         Persona persona = (Persona) session.get("logged");
+        // Verificación de si el usuario logeado es administrador o no
         if (persona.isAdmin()) {
+            // Si es administrador, se podrá visaulizar todas las tareas asociadas al proyecto
             setListaTareas(daoTarea.getTareasPorProyecto(getIdProyecto()));
             setListaParticipacion(daoParticipacion.getParticipacionPorProyecto(getIdProyecto()));
         } else {
+            // Si no es administrador, solo visualizará las tareas que le han sido asociadas a el/ella
             setListaTareas(daoTarea.getTareasPorProyectoPorPersona(idProyecto, persona.getIdPersona()));
         }
         return SUCCESS;
     }
 
+    /**
+     * Método para ir al formulario de edición de proyecto
+     * @return 
+     */
     public String goToEditarProyecto() {
             ProyectoDAO daoProyecto = new ProyectoDAO();
             setProyecto(daoProyecto.getProyecto(getIdProyecto()));

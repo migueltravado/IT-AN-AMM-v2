@@ -19,6 +19,8 @@ import java.util.List;
 public class AdicionTareaAction extends ActionSupport {
 
     private int idProyecto;
+    // En este caso, la tarea se crea implicitamente por el paso por parámetros
+    // al objeto desde el .jsp, este aspecto lo maneja Struts2
     private Tarea tarea;
     private int idParticipacion;
     private int idTarea;
@@ -28,21 +30,39 @@ public class AdicionTareaAction extends ActionSupport {
     public AdicionTareaAction() {
     }
 
+    /**
+     * Método para la adición de una tarea nueva asociada a un proyecto
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
+        // DAOs necesarios para la búsqueda y guardado de instancias en la BBDD
         ParticipacionDAO daoParticipacion = new ParticipacionDAO();
         TareaDAO daoTarea = new TareaDAO();
+        // Obtención de la tarea que precede a la nueva
         Tarea t = daoTarea.getTarea(getIdTarea());
+        // Obtención de la participación asociada a la tarea (por ende, ya tiene
+        // asociada un proyecto y una persona)
         Participacion part = daoParticipacion.getParticipacion(getIdParticipacion());
+        // Asociación de tarea predecesoria y participación
         getTarea().setTarea(t);
         getTarea().setParticipacion(part);
+        // Guardado de tarea en la BBDD
         daoTarea.saveTarea(getTarea());
         return SUCCESS;
     }
 
+    /**
+     * Valicación de la acción
+     */
     public void validate() {
+        // Comprobación de que el nombre es rellenado
         if (tarea.getNombre() == null || tarea.getNombre().isEmpty()) {
             addFieldError("tarea.nombre", "El nombre de la tarea es obligatorio");
         }
+        // Comprobación de que las fechas son rellenadas
+        // En el caso del formato, se valida de forma interna con Struts2, al 
+        // enlazar el campo del formulario con una variable tipo java.util.Date
         if (tarea.getFechaInicio() == null) {
             addFieldError("tarea.fechaInicio", "La fecha de inicio es obligatoria");
         }

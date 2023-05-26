@@ -26,15 +26,26 @@ public class CargaProyectosAction extends ActionSupport {
     public CargaProyectosAction() {
     }
     
+    /**
+     * Método que carga el listado de proyecto del usuario logeado
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
+        // DAOs necesarios para la obtención de proyectos y tareas
         ProyectoDAO daoProyecto = new ProyectoDAO();
         TareaDAO daoTarea = new TareaDAO();
+        // Obtención de la persona logeada en el sistema
         Map session = (Map) ActionContext.getContext().getSession();
         Persona persona = (Persona)session.get("logged");
+        // Verificación de si la persona es admin o no
         if(persona.isAdmin()){
+            // Si la persona es administradora, se le muestran todos los proyecto existentes
             setListaProyectos(daoProyecto.getProyectos());
         }
         else{
+            // Si la persona no es administradora, se le mostrarán solo los proyecto
+            // en los que participe
             setListaProyectos(daoProyecto.getProyectosPorPersona(persona.getIdPersona()));
         }
         return SUCCESS;

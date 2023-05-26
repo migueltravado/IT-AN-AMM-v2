@@ -27,10 +27,19 @@ public class FormularioTareaAction extends ActionSupport {
     public FormularioTareaAction() {
     }
     
+    /**
+     * Método para la obtención de participaciones y tareas detinada al formulario
+     * de tareas. Necesario al tener dos select en los que definir la persona asociada
+     * a la nueva tarea, y una lista de tareas que definir como predecesoras
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
+        // DAOs necesarios para la obtención de instancias
         ProyectoDAO daoProyecto = new ProyectoDAO();
         TareaDAO daoTarea = new TareaDAO();
         Proyecto p = daoProyecto.getProyecto(getIdProyecto());
+        // Inicialización de listas para su visualización en los select del .jsp
         setListaParticipacion(p.getParticipacions());
         setListaTarea(daoTarea.getTareasPorProyecto(getIdProyecto()));
         return SUCCESS;

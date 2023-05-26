@@ -5,11 +5,13 @@
  */
 package Controlador.Actions;
 
+import Modelo.DAO.ParticipacionDAO;
 import Modelo.DAO.PersonaDAO;
 import Modelo.POJOs.Participacion;
 import Modelo.POJOs.Persona;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -34,16 +36,30 @@ public class BusquedaPersonaParticipacionAction extends ActionSupport {
         return SUCCESS;
     }
 
+    /**
+     * Validación de la acción
+     */
     public void validate() {
+        // Comprobación de que la persona existe
         PersonaDAO daoPersona = new PersonaDAO();
         setPersona(daoPersona.getPersonaId(idPersona));
         if (getPersona() != null) {
+            // Comprobación de que la persona no es administrador
             if (getPersona().isAdmin()) {
                 //INTERNACIONALIZAR
                 addFieldError("idPersona", "La persona no puede ser un administrador");
             }
-            // AÑADIR VALIDACIÓN PARA QUE NO BUSQUE UNA PERSONA QUE YA ESTÉ 
-            // COMO PARTICIPANTE EN EL PROYECTO 
+            // Comprobación de que la persona no pertenece ya al proyecto
+            ParticipacionDAO daoParticipacion = new ParticipacionDAO();
+            List<Participacion> listaParticipacionProyecto = daoParticipacion.getParticipacionPorProyecto(idProyecto);
+            Iterator iter = listaParticipacionProyecto.iterator();
+            while(iter.hasNext()){
+                Participacion part = (Participacion)iter.next();
+                if(part.getPersona().getIdPersona() == idPersona){
+                    addFieldError("idPersona", "La persona no puede pertenecer ya al proyecto");
+                    break;
+                }
+            }
         }
     }
 

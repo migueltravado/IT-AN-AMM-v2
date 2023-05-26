@@ -16,20 +16,30 @@ import java.text.SimpleDateFormat;
  * @author miguel.travado
  */
 public class EditarProyectoAction extends ActionSupport {
-
+    // Asociación interna por struts2 de los parámetros del formulario al 
+    // objeto proyecto
     private Proyecto proyecto;
 
     public EditarProyectoAction() {
     }
 
+    /**
+     * Método que actualiza el proyecto en cuestión
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
         ProyectoDAO daoProyecto = new ProyectoDAO();
         daoProyecto.updateProyecto(getProyecto());
         return SUCCESS;
     }
 
+    /**
+     * Validación de la acción
+     */
     @Override
     public void validate(){
+        // Mismas comprobaciones que en la creación de un proyecto
         if (proyecto.getNombre() == null || proyecto.getNombre().trim().isEmpty()) {
             addFieldError("proyecto.nombre", "El nombre es obligatorio");
         }

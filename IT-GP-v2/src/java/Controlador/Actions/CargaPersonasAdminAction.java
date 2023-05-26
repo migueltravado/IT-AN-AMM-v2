@@ -20,6 +20,12 @@ public class CargaPersonasAdminAction extends ActionSupport {
     public CargaPersonasAdminAction() {
     }
     
+    /**
+     * Método que carga un listado de personas para su visualización (exclusivo
+     * de admin)
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
         PersonaDAO daoPersona = new PersonaDAO();
         setListaPersonas(daoPersona.getPersonas());

@@ -22,6 +22,11 @@ public class FormularioParticipacionAction extends ActionSupport {
     public FormularioParticipacionAction() {
     }
     
+    /**
+     * Método para la carga de los roles destinado al formulario de creación participación
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
         RolDAO daoRol = new RolDAO();
         setListaRol(daoRol.getRoles());

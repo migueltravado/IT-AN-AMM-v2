@@ -21,6 +21,12 @@ public class CargarPersonasParticipacionAction extends ActionSupport {
     public CargarPersonasParticipacionAction() {
     }
     
+    /**
+     * Método que carga las persona que pertenecen a un proyecto en concreto,
+     * es decir, que tienen una participación asociada a ese proyecto
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
         PersonaDAO daoPersona = new PersonaDAO();
         setListaPersona(daoPersona.getPersonasPorProyectoNotExist(getIdProyecto()));

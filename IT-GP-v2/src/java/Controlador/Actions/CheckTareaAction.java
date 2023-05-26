@@ -21,21 +21,38 @@ public class CheckTareaAction extends ActionSupport {
     public CheckTareaAction() {
     }
     
+    /**
+     * Método que modifica el valor del atributo "Completado" de una tarea, mostrando
+     * que esa tarea ya se ha realizado
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
+        // Obtención de la tarea
         TareaDAO daoTarea = new TareaDAO();
+        // Modificación del atributo de la tarea
         getTarea().setCompletado(true);
+        // Modificación de la actualización en persistencia del sistema
         daoTarea.updateTarea(getTarea());
         return SUCCESS;
     }
     
+    /**
+     * Validación de la acción
+     * Se comprueba que la tarea predecesora de la tarea objetivo está completada
+     * Si no es así, salta un error y no permite la actualización de estado de la 
+     * tarea objetivo
+     */
     public void validate(){
         TareaDAO daoTarea = new TareaDAO();
         setTarea(daoTarea.getTarea(getIdTarea()));
+        // Obtención de la tarea predecesora
         Tarea tareaPredecesora = getTarea().getTarea();
+        // Es posible que una tarea no tenga otra tarea relacionada
         if(tareaPredecesora != null){
+            // Verificación de que la tarea está completada
             if(!tareaPredecesora.isCompletado()){
                 // No se muestra el error en el submit de "Check"
-                //INTERNACIONALIZAR
                 addFieldError("idTarea", "La tarea previa no está completada");
             }
         }

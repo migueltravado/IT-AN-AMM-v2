@@ -30,23 +30,40 @@ public class AdicionParticipacionAction extends ActionSupport {
     public AdicionParticipacionAction() {
     }
     
+    /**
+     * Método que realiza la búsqueda de proyecto, persona y rol asociados
+     * a la participación que se desea crear.
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
+        // DAOs necesarios para la búsqueda y el guardado de una nueva instancia
         ProyectoDAO daoProyecto = new ProyectoDAO();
         PersonaDAO daoPersona = new PersonaDAO();
         RolDAO daoRol = new RolDAO();
         ParticipacionDAO daoParticipacion = new ParticipacionDAO();
+        // Búsqueda de el proyecto, persona y rol según su ID
         Proyecto pro = daoProyecto.getProyecto(idProyecto);
         Persona pers = daoPersona.getPersonaId(idPersona);
         Rol rol = daoRol.getRol(iddRol);
+        // Creación de la isntancia participación
         Participacion participacion = new Participacion(pers, pro, rol, cuota);
+        // Acceso a la BBDD para guardar la instancia mediante el DAO
         daoParticipacion.saveParticipacion(participacion);
         return SUCCESS;
     }
     
+    /**
+     * Validación de la acción
+     */
     public void validate(){
+        // En caso de que la validación pueda fallar, se obtiene la lista de
+        // roles para la impresión (select) en la página web del formulario
+        // si se devolviese input. Si no se hiciese este paso, daría ERROR
         RolDAO daoRol = new RolDAO();
-        System.out.println(":::::: " + getIddRol());
         setListaRol(daoRol.getRoles());
+        // Comprobación de que la cuota por participación en el proyecto es 
+        // mayor estricto que 0.
         if (cuota <= 0) {
             addFieldError("cuota", "La cuota debe ser un número positivo mayor que 0.");
         }

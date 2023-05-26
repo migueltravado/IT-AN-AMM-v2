@@ -20,9 +20,16 @@ public class EliminarProyectoAction extends ActionSupport {
     public EliminarProyectoAction() {
     }
     
+    /**
+     * Método para la eliminación de un proyecto
+     * @return
+     * @throws Exception 
+     */
     public String execute() throws Exception {
         ProyectoDAO daoProyecto = new ProyectoDAO();
+        // Obtención de la instancia proyecto
         setProyecto(daoProyecto.getProyecto(idProyecto));
+        // Eliminación del proyecto en la persistencia
         daoProyecto.deleteProyecto(getProyecto());
         return SUCCESS;
     }

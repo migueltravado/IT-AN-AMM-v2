@@ -21,25 +21,33 @@ public class LoginAction extends ActionSupport {
     public LoginAction() {
     }
     
+    /**
+     * Método que guarda una variable en sesión con la persona que se ha conseguido
+     * loggear en el sistema.
+     * @return
+     * @throws Exception 
+     */
     @Override
     public String execute() throws Exception {
-        System.out.println("----------------------\n");
         Map session = (Map) ActionContext.getContext().getSession();
-        System.out.println("----------------------\n");
         session.put("logged", persona);
-        System.out.println("----------------------\n");
         return SUCCESS;
     }
     
+    /**
+     * Validación de la acción
+     */
     @Override
     public void validate(){
         String password = getPersona().getPassword();
         PersonaDAO dao = new PersonaDAO();
         setPersona(dao.getPersona(persona.getUsuario()));
+        // Comprobación de que el usuario existe
         if(getPersona() == null){
             addFieldError("persona.usuario", "Usuario inexistente");
             return;
         }
+        // Comprobación de que la contraseña coincide
         if(!getPersona().getPassword().equals(password)){
             addFieldError("persona.password", "Contraseña incorrecta");
             return;
