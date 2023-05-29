@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package Controlador.Actions;
+import Modelo.DAO.ForoDAO;
 import java.util.*;
 import Modelo.DAO.ProyectoDAO;
 import Modelo.DAO.TareaDAO;
+import Modelo.POJOs.Foro;
 import Modelo.POJOs.Persona;
 import Modelo.POJOs.Proyecto;
 import Modelo.POJOs.Tarea;
@@ -22,6 +24,7 @@ public class CargaProyectosAction extends ActionSupport {
     private List<Proyecto> listaProyectos;
     private Map<Integer, List<Tarea>> mapTarea;
     private Proyecto proyecto;
+    
     
     public CargaProyectosAction() {
     }
@@ -48,6 +51,7 @@ public class CargaProyectosAction extends ActionSupport {
             // en los que participe
             setListaProyectos(daoProyecto.getProyectosPorPersona(persona.getIdPersona()));
         }
+        
         return SUCCESS;
     }
 
@@ -78,5 +82,7 @@ public class CargaProyectosAction extends ActionSupport {
     public void setProyecto(Proyecto proyecto) {
         this.proyecto = proyecto;
     }
+
+    
     
 }

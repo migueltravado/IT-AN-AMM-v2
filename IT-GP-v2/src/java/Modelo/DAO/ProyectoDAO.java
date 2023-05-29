@@ -14,7 +14,7 @@ import org.hibernate.*;
  */
 public class ProyectoDAO {
     public Proyecto getProyecto(int idProyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Proyecto WHERE idProyecto = " + idProyecto);
         Proyecto p = (Proyecto)q1.uniqueResult();
@@ -23,7 +23,7 @@ public class ProyectoDAO {
     }
     
     public List<Proyecto> getProyectos(){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Proyecto");
         List<Proyecto> listaProyectos = (List<Proyecto>)q1.list();
@@ -32,7 +32,7 @@ public class ProyectoDAO {
     }
     
     public List<Proyecto> getProyectosPorPersona(int IdPersona){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select p FROM Proyecto p JOIN p.participacions par JOIN par.persona per WHERE per.idPersona = " + IdPersona);
         List<Proyecto> listaProyectos = (List<Proyecto>)q1.list();
@@ -41,7 +41,7 @@ public class ProyectoDAO {
     }
     
     public void deleteProyecto(Proyecto proyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.delete(proyecto);
         tx.commit();
@@ -49,7 +49,7 @@ public class ProyectoDAO {
     }
     
     public void updateProyecto(Proyecto proyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.update(proyecto);
         tx.commit();
@@ -57,7 +57,7 @@ public class ProyectoDAO {
     }
     
     public void saveProyecto(Proyecto proyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.save(proyecto);
         tx.commit();

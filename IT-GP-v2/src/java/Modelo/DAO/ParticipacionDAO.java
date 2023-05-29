@@ -17,14 +17,14 @@ import org.hibernate.Transaction;
  */
 public class ParticipacionDAO {
     public void saveParticipacion(Participacion participacion){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.save(participacion);
         tx.commit();
     }
     
     public Participacion getParticipacion(int idParticipacion){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Participacion where idParticipacion = " + idParticipacion);
         Participacion p = (Participacion)q1.uniqueResult();
@@ -33,11 +33,20 @@ public class ParticipacionDAO {
     }
     
     public List<Participacion> getParticipacionPorProyecto(int idProyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select p From Participacion p JOIN p.proyecto pro WHERE pro.idProyecto = " + idProyecto);
         List<Participacion> listaParticipacion = (List<Participacion>)q1.list();
         tx.commit();
         return listaParticipacion;
+    }
+    
+    public Participacion getParticipacionPersonaProyecto(int idProyecto, int idPersona){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        Query q1 = session.createQuery("From Participacion where idProyecto = " + idProyecto + " AND idPersona = " + idPersona);
+        Participacion p = (Participacion)q1.uniqueResult();
+        tx.commit();
+        return p;
     }
 }

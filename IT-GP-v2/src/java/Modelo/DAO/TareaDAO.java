@@ -17,7 +17,7 @@ import org.hibernate.Transaction;
  */
 public class TareaDAO {
     public List<Tarea> getTareasPorPersona(int idPersona){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select t FROM Tarea t JOIN t.participacion par JOIN par.persona pers WHERE pers.idPersona = " + idPersona);
         List<Tarea> listaProyectos = (List<Tarea>)q1.list();
@@ -26,7 +26,7 @@ public class TareaDAO {
     }
     
     public List<Tarea> getTareasPorProyectoPorPersona(int idProyecto, int idPersona){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select t FROM Tarea t JOIN t.participacion par JOIN par.proyecto pro JOIN par.persona pers WHERE pro.idProyecto = " + idProyecto + "AND pers.idPersona = " + idPersona);
         List<Tarea> listaProyectos = (List<Tarea>)q1.list();
@@ -35,7 +35,7 @@ public class TareaDAO {
     }
     
     public List<Tarea> getTareasPorProyecto(int idProyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select t FROM Tarea t JOIN t.participacion par JOIN par.proyecto pro WHERE pro.idProyecto = " + idProyecto);
         List<Tarea> listaProyectos = (List<Tarea>)q1.list();
@@ -43,8 +43,17 @@ public class TareaDAO {
         return listaProyectos;
     }
     
+    public List<Tarea> getTareasProyectoModificar(int idProyecto, int idTarea){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        Query q1 = session.createQuery("select t FROM Tarea t JOIN t.participacion par JOIN par.proyecto pro WHERE pro.idProyecto = " + idProyecto + " AND t.idTarea != " + idTarea);
+        List<Tarea> listaProyectos = (List<Tarea>)q1.list();
+        tx.commit();
+        return listaProyectos;
+    }
+    
     public Tarea getTarea(int idTarea){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select t FROM Tarea t where idTarea = " + idTarea);
         Tarea tarea = (Tarea)q1.uniqueResult();
@@ -53,16 +62,25 @@ public class TareaDAO {
     }
     
     public void saveTarea(Tarea tarea){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.save(tarea);
         tx.commit();
     }
     
     public void updateTarea(Tarea tarea){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         session.update(tarea);
+        tx.commit();
+    }
+    
+    public void deleteTarea(String idTarea){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        Query q = session.createQuery("FROM Tarea WHERE id = " + idTarea);
+        Tarea tarea = (Tarea) q.uniqueResult();
+        session.delete(tarea);
         tx.commit();
     }
 }

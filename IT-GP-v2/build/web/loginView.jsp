@@ -15,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
         <h1>Login</h1>
         <s:form action="loginAction">
             <s:textfield name="persona.usuario" label="Usuario"/>

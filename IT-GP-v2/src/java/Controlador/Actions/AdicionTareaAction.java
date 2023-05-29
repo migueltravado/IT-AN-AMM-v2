@@ -40,13 +40,17 @@ public class AdicionTareaAction extends ActionSupport {
         ParticipacionDAO daoParticipacion = new ParticipacionDAO();
         TareaDAO daoTarea = new TareaDAO();
         // Obtención de la tarea que precede a la nueva
-        Tarea t = daoTarea.getTarea(getIdTarea());
+        Tarea t = null;
+        if(idTarea != -1){
+            t =daoTarea.getTarea(getIdTarea());
+        }
         // Obtención de la participación asociada a la tarea (por ende, ya tiene
         // asociada un proyecto y una persona)
         Participacion part = daoParticipacion.getParticipacion(getIdParticipacion());
         // Asociación de tarea predecesoria y participación
         getTarea().setTarea(t);
         getTarea().setParticipacion(part);
+        
         // Guardado de tarea en la BBDD
         daoTarea.saveTarea(getTarea());
         return SUCCESS;
