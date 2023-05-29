@@ -24,13 +24,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <s:if test="%{#session.logged == null}">
+            <script>
+                window.location.href = "loginView.jsp";
+            </script>
+        </s:if>
         <div class="header" style="margin-top:18px;">
             <div>
                 <s:url id="url_action_proyectos" action="cargaProyectos"/>
                 <a href="<s:property value="#url_action_proyectos"/>">Proyectos</a>
             </div>
             <div>
-                <s:url id="url_action_foros" action="cargaPersonasAdmin"/>
+                <s:url id="url_action_foros" action="cargaForosAdmin"/>
                 <a href="<s:property value="#url_action_foros"/>">Foros</a>
             </div>
             <s:if test="%{#session.logged.admin == true}">
@@ -43,6 +48,11 @@
                     <a href="<s:property value="#url_action_proyectos"/>">Roles</a>
                 </div>
             </s:if>
+            <div>
+                <s:form action="logout">
+                    <s:submit value="Log out"/>
+                </s:form>
+            </div>
         </div>
     </body>
 </html>
