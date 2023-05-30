@@ -47,7 +47,7 @@ public class BusquedaPersonaParticipacionAction extends ActionSupport {
             // Comprobación de que la persona no es administrador
             if (getPersona().isAdmin()) {
                 //INTERNACIONALIZAR
-                addFieldError("idPersona", "La persona no puede ser un administrador");
+                addFieldError("idPersona", getText("idPersonaAdm.error"));
             }
             // Comprobación de que la persona no pertenece ya al proyecto
             ParticipacionDAO daoParticipacion = new ParticipacionDAO();
@@ -56,7 +56,7 @@ public class BusquedaPersonaParticipacionAction extends ActionSupport {
             while(iter.hasNext()){
                 Participacion part = (Participacion)iter.next();
                 if(part.getPersona().getIdPersona() == idPersona){
-                    addFieldError("idPersona", "La persona no puede pertenecer ya al proyecto");
+                    addFieldError("idPersona", getText("idPersonaNo.error"));
                     break;
                 }
             }

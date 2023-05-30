@@ -48,7 +48,7 @@
                     <a href="<s:property value="#url_action_proyectos"/>">Roles</a>
                 </div>
             </s:if>
-            <div>
+            <div class="logout">
                 <s:form action="logout">
                     <s:submit value="Log out"/>
                 </s:form>

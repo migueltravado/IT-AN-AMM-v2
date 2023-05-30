@@ -53,7 +53,7 @@ public class CheckTareaAction extends ActionSupport {
             // Verificación de que la tarea está completada
             if(!tareaPredecesora.isCompletado()){
                 // No se muestra el error en el submit de "Check"
-                addFieldError("idTarea", "La tarea previa no está completada");
+                addFieldError("idTarea", getText("idTarea.error"));
             }
         }
     }

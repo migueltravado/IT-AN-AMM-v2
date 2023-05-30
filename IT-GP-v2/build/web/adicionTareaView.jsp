@@ -15,20 +15,22 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <s:i18n name="Controlador.Actions.AdicionTareaAction">
         <s:include value="/header.jsp"/>
-        <h1>Tarea</h1>
-        <h3>ID Proyecto: <s:property value="idProyecto"/></h3>
+        <h1><s:text name="Tarea"/></h1>
+        <h3><s:text name="idProyecto.form"/><s:property value="idProyecto"/></h3>
         <s:form action="adicionTarea">
-            <s:textfield name="tarea.nombre" label="Nombre"/>
-            <s:textarea name="tarea.descripcion" label="Descripcion"/>
-            <s:textfield name="tarea.fechaInicio" label="Fecha inicio"/>
-            <s:textfield name="tarea.fechaFin" label="Fecha Fin"/>
+            <s:textfield name="tarea.nombre" key="Nombre"/>
+            <s:textarea name="tarea.descripcion" key="Descripcion"/>
+            <s:textfield name="tarea.fechaInicio" key="FechaInicio"/>
+            <s:textfield name="tarea.fechaFin" key="FechaFin"/>
             <s:select name="idParticipacion" list="listaParticipacion" 
-                      listKey="idParticipacion" listValue="%{persona.nombre}" label="Persona"/>
+                      listKey="idParticipacion" listValue="%{persona.nombre}" key="Persona"/>
             <s:select name="idTarea" list="listaTarea" 
-                      listKey="idTarea" listValue="%{nombre}" label="Tarea Predecesora"/>
+                      listKey="idTarea" listValue="%{nombre}" key="TareaPredecesora"/>
             <s:hidden name="idProyecto" value="%{idProyecto}"/>
-            <s:submit value="Añadir"/>
+            <s:submit value="Añadir" key="Añadir"/>
         </s:form>
+        </s:i18n>
     </body>
 </html>

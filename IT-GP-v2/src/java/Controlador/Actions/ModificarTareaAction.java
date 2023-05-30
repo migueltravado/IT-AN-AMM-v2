@@ -89,17 +89,17 @@ public class ModificarTareaAction extends ActionSupport {
     @Override
     public void validate() {
         if (getPersonas() == null) {
-            if (tarea.getNombre() == null || tarea.getNombre().isEmpty()) {
-                addFieldError("tarea.nombre", "El nombre de la tarea es obligatorio");
+            if (getTarea().getNombre() == null || tarea.getNombre().isEmpty()) {
+                addFieldError("tarea.nombre", getText("nombre.error"));
             }
             // Comprobación de que las fechas son rellenadas
             // En el caso del formato, se valida de forma interna con Struts2, al 
             // enlazar el campo del formulario con una variable tipo java.util.Date
-            if (tarea.getFechaInicio() == null) {
-                addFieldError("tarea.fechaInicio", "La fecha de inicio es obligatoria");
+            if (getTarea().getFechaInicio() == null) {
+                addFieldError("tarea.fechaInicio", getText("fechaInicio.error"));
             }
-            if (tarea.getFechaFin() == null) {
-                addFieldError("tarea.fechaFin", "La fecha de fin es obligatoria");
+            if (getTarea().getFechaFin() == null) {
+                addFieldError("tarea.fechaFin", getText("fechaFin.error"));
             }
             cargaDatos();
         }
