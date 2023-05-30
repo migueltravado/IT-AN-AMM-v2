@@ -15,19 +15,20 @@
         <s:head/>
     </head>
     <body>
+        <s:i18n name="Controlador.Actions.AdicionParticipacionAction">
         <s:include value="/header.jsp"/>
         <s:form action="busquedaPersonaParticipacion">
-            <s:textfield name="idPersona" label="Busqueda por DNI"/>
+            <s:textfield name="idPersona" key="BusquedaDNI"/>
             <s:hidden name="idProyecto" value="%{idProyecto}"/>
-            <s:submit value="Buscar"/>
+            <s:submit value="Buscar" key="Buscar"/>
         </s:form>
         <table border="1">
             <tr>
-                <td>ID</td>
-                <td>Nombre</td>
-                <td>Apellido</td>
-                <td>DNI</td>
-                <td>Añadir</td>
+                <td><s:text name="ID"/></td>
+                <td><s:text name="Nombre"/>Nombre</td>
+                <td><s:text name="Apellidos"/>Apellido</td>
+                <td><s:text name="Dni"/></td>
+                <td><s:text name="Añadir"/>Añadir</td>
             </tr>
             <s:iterator value="listaPersona" var="pers">
                 <tr>
@@ -37,13 +38,14 @@
                     <td><s:property value="#pers.dni"/></td>
                     <td>
                         <s:form action="formularioParticipacion">
-                            <s:submit value="Añadir"/>
+                            <s:submit value="Añadir" key="Añadir"/>
                             <s:hidden name="idPersona" value="%{#pers.idPersona}"/>
                             <s:hidden name="idProyecto" value="%{idProyecto}"/>
                         </s:form>
                     </td>
                 </tr>
             </s:iterator>
+            </s:i18n>
         </table>
 
     </body>
