@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+import org.apache.struts2.interceptor.validation.SkipValidation;
 
 /**
  *
@@ -31,6 +32,7 @@ public class CUDPersonaAction extends ActionSupport {
     }
     
     
+    @SkipValidation
     public String modificar() throws Exception {
         return SUCCESS;
     }

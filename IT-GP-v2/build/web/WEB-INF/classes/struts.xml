@@ -194,8 +194,8 @@
     </package>
     
     <package name="foro" extends="struts-default">
-        <action name="cargaForosAdmin" class="Controlador.Actions.CargaForoAdminAction">
-            <result name="success">forosAdminView.jsp</result>
+        <action name="cargaForos" class="Controlador.Actions.CargaForoAction">
+            <result name="success">forosView.jsp</result>
         </action>
         
         <action name="getForo" class="Controlador.Actions.CargaMensajesAction">

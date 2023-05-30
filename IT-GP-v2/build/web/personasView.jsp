@@ -41,7 +41,6 @@
                                 <s:hidden name="persona.usuario" value="%{#persona.usuario}"/>
                                 <s:hidden name="persona.admin" value="%{#persona.admin}"/>
                                 <s:hidden name="persona.password" value="%{#persona.password}"/>
-
                                 <s:submit key="mod.button"/>
                             </s:form>
                             <s:form action="eliminaPersona">

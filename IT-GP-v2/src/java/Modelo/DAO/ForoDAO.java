@@ -36,4 +36,16 @@ public class ForoDAO {
         return listaForo;
     }
     
+    public List<Foro> getForosPerona(int idPersona){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        Query q1 = session.createQuery("SELECT f FROM Foro f JOIN f.proyecto p WHERE p.idProyecto IN (SELECT p.idProyecto FROM Proyecto p JOIN p.participacions par JOIN par.persona per WHERE per.idPersona =" + idPersona + ")");
+        List<Foro> listaForo = (List<Foro>)q1.list();
+        tx.commit();
+        
+        return listaForo;
+        
+        
+    }
+    
 }

@@ -35,7 +35,7 @@
                 <a href="<s:property value="#url_action_proyectos"/>">Proyectos</a>
             </div>
             <div>
-                <s:url id="url_action_foros" action="cargaForosAdmin"/>
+                <s:url id="url_action_foros" action="cargaForos"/>
                 <a href="<s:property value="#url_action_foros"/>">Foros</a>
             </div>
             <s:if test="%{#session.logged.admin == true}">

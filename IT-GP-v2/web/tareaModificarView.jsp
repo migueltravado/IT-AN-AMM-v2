@@ -19,7 +19,7 @@
             <h3>ID <s:text name="proyecto.form" />: <s:property value="idProyecto"/></h3>
 
             <s:form action="modTarea">
-                <s:textfield name="tarea.nombre" key="nombre.form" value="%{tarea.nombre}"/>
+                <s:textfield name="tarea.nombre" key="nombre.form" value="%{tarea.nombre}" />
                 <s:textarea name="tarea.descripcion" key="descripcion.form" value="%{tarea.descripcion}"/>
                 <s:textfield name="tarea.fechaInicio" key="fechaInicio.form" value="%{tarea.fechaInicio}"/>
                 <s:textfield name="tarea.fechaFin" key="fechaFin.form" value="%{tarea.fechaFin}"/>

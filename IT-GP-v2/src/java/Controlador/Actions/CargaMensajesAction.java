@@ -28,6 +28,12 @@ public class CargaMensajesAction extends ActionSupport {
         
         setMensajes(mDAO.getMensajesForo(getIdForo()));
         
+        System.out.println(mensajes.get(0).getContenido());
+        System.out.println(mensajes.get(0).getEnvio());
+        
+        System.out.println(mensajes.get(0).getEnvio());
+        System.out.println(mensajes.get(0).getEnvio().getPersona().getIdPersona());
+        
         return SUCCESS;
     }
 

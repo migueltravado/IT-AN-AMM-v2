@@ -20,11 +20,12 @@ public class MensajeDAO {
     public List<Mensaje> getMensajesForo(int idForo){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        Query q1 = session.createQuery("SELECT m FROM Mensaje m JOIN m.envio e WHERE e.foro.idForo = " + idForo);
-        List<Mensaje> listaForo = (List<Mensaje>)q1.list();
+        Query q1 = session.createQuery("Select m FROM Mensaje m JOIN m.envio e JOIN e.foro f JOIN e.persona p WHERE f.idForo = " + idForo);
+        //Query q1 = session.createQuery("From Mensaje");
+        
+        List<Mensaje> listaMensajes = (List<Mensaje>) q1.list();
         tx.commit();
         
-        return listaForo;
+        return listaMensajes;
     }
-    
 }

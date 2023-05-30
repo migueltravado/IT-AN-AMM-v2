@@ -14,8 +14,16 @@
     </head>
     <body>
         <s:iterator value="mensajes" var="m">
-            <s:property value="#m.envio.persona.nombre"/>
-            <s:property value="#m.contenido"/>
+            <br/>----------------------------------
+            <br/><s:property value="#m.envio.persona.nombre"/>
+            <br/><s:property value="#m.contenido"/>
+            <br/>----------------------------------
         </s:iterator>
+            
+            <h2>Añadir Mensaje</h2>
+            <s:form action="addMensaje">
+                <s:hidden name="id"/>
+                <s:textarea name="mensaje.contenido" />
+            </s:form>
     </body>
 </html>

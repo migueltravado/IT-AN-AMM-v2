@@ -57,8 +57,6 @@ public class VisualizarProyectoAction extends ActionSupport {
             // Si no es administrador, solo visualizará las tareas que le han sido asociadas a el/ella
             setListaTareas(daoTarea.getTareasPorProyectoPorPersona(idProyecto, persona.getIdPersona()));
         }
-        
-        System.out.println(getProyecto().getForo().getDescripcion());
         return SUCCESS;
     }
 
