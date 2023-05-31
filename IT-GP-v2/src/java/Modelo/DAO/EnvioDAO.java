@@ -5,6 +5,7 @@
  */
 package Modelo.DAO;
 
+import Modelo.POJOs.Envio;
 import Modelo.POJOs.Mensaje;
 import java.util.List;
 import org.hibernate.Query;
@@ -15,27 +16,24 @@ import org.hibernate.Transaction;
  *
  * @author aleja
  */
-public class MensajeDAO {
+public class EnvioDAO {
     
-    public List<Mensaje> getMensajesForo(int idForo){
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    public void addEnvio(Envio e){
+     Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        Query q1 = session.createQuery("Select m FROM Mensaje m JOIN m.envio e JOIN e.foro f JOIN e.persona p WHERE f.idForo = " + idForo);
-        //Query q1 = session.createQuery("From Mensaje");
-        
-        List<Mensaje> listaMensajes = (List<Mensaje>) q1.list();
-        tx.commit();
-        
-        return listaMensajes;
+        session.save(e);
+        tx.commit();   
     }
     
-    public void addMensaje(Mensaje m){
+    public Envio getEnvio(int idPersona, int idForo){
+        
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        session.save(m);
+        Query q1 = session.createQuery("FROM Envio WHERE idForo = " + idForo + " idPersona = " + idPersona);
+        Envio envio = (Envio) q1.uniqueResult();
         tx.commit();
+        
+        return envio;
     }
-    
-    
     
 }

@@ -22,8 +22,9 @@
             
             <h2>Añadir Mensaje</h2>
             <s:form action="addMensaje">
-                <s:hidden name="id"/>
+                <s:hidden name="idForo"/>
                 <s:textarea name="mensaje.contenido" />
+                <s:submit label="Enviar"/>
             </s:form>
     </body>
 </html>

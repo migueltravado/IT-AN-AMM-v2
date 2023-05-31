@@ -44,8 +44,15 @@ public class ForoDAO {
         tx.commit();
         
         return listaForo;
+    }
+    
+    public Foro getForo(int idForo){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
         
-        
+        Query q = session.createQuery("From Foro WHERE idForo=" + idForo);
+        Foro foro = (Foro) q.uniqueResult();
+        return foro;
     }
     
 }
