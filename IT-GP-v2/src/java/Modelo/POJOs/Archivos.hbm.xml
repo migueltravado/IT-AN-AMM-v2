@@ -7,7 +7,7 @@
       <column name="IdArchivo"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="Modelo.POJOs.Proyecto" fetch="join" name="proyecto">
+    <many-to-one class="Modelo.POJOs.Proyecto" fetch="join" name="proyecto" lazy="false">
       <column name="IdProyecto" not-null="true"/>
     </many-to-one>
     <property name="documento" type="binary">

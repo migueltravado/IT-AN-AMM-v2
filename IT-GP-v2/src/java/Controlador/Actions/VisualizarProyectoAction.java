@@ -25,7 +25,7 @@ import java.util.Set;
  */
 public class VisualizarProyectoAction extends ActionSupport {
 
-    private Integer idProyecto;
+    private int idProyecto;
     private Proyecto proyecto;
     private List<Tarea> listaTareas;
     private List<Participacion> listaParticipacion;
@@ -78,11 +78,11 @@ public class VisualizarProyectoAction extends ActionSupport {
 
     }
 
-    public Integer getIdProyecto() {
+    public int getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(Integer idProyecto) {
+    public void setIdProyecto(int idProyecto) {
         this.idProyecto = idProyecto;
     }
 

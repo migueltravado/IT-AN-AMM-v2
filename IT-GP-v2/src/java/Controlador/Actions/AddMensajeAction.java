@@ -53,6 +53,7 @@ public class AddMensajeAction extends ActionSupport {
         }
         getMensaje().setEnvio(e);
         mDAO.addMensaje(getMensaje());
+        cargaMensajes();
         
         return SUCCESS;
     }

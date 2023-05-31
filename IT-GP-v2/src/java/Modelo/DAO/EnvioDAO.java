@@ -6,8 +6,6 @@
 package Modelo.DAO;
 
 import Modelo.POJOs.Envio;
-import Modelo.POJOs.Mensaje;
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -29,7 +27,7 @@ public class EnvioDAO {
         
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
-        Query q1 = session.createQuery("FROM Envio WHERE idForo = " + idForo + " idPersona = " + idPersona);
+        Query q1 = session.createQuery("FROM Envio WHERE idForo = " + idForo + " AND idPersona = " + idPersona);
         Envio envio = (Envio) q1.uniqueResult();
         tx.commit();
         

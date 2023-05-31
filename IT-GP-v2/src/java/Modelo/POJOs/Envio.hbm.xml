@@ -7,10 +7,10 @@
       <column name="IdEnvio"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="Modelo.POJOs.Foro" fetch="join" name="foro">
+    <many-to-one class="Modelo.POJOs.Foro" fetch="join" name="foro" lazy="false">
       <column name="IdForo" not-null="true"/>
     </many-to-one>
-    <many-to-one class="Modelo.POJOs.Persona" fetch="join" name="persona">
+    <many-to-one class="Modelo.POJOs.Persona" fetch="join" name="persona" lazy="false">
       <column name="IdPersona" not-null="true"/>
     </many-to-one>
     <set fetch="join" inverse="true" lazy="false" name="mensajes" table="mensaje">

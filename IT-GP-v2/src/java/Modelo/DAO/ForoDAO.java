@@ -52,6 +52,7 @@ public class ForoDAO {
         
         Query q = session.createQuery("From Foro WHERE idForo=" + idForo);
         Foro foro = (Foro) q.uniqueResult();
+        tx.commit();
         return foro;
     }
     

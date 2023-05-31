@@ -203,8 +203,8 @@
         </action>
         
         <action name="addMensaje" class="Controlador.Actions.AddMensajeAction">
-            <result name="success">mensajeForoView.jsp</result>
-            <result name="input">mensajeForoView.jsp</result>
+            <result name="success">mensajeForoView.jsp?idForo=1</result>
+            <result name="input">mensajeForoView.jsp?idForo=1</result>
         </action>
         
     </package>
