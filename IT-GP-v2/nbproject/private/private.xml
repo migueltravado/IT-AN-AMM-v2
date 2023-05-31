@@ -3,21 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Controlador/Actions/LoginAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Controlador/Actions/CargaMensajesAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/DAO/PersonaDAO.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/struts.xml</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/DAO/ForoDAO.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/POJOs/Participacion.hbm.xml</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/web/mensajeForoView.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/POJOs/Persona.hbm.xml</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/POJOs/Tarea.hbm.xml</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/DAO/EnvioDAO.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/web/loginView.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Controlador/Actions/CargaProyectosAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Modelo/DAO/MensajeDAO.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Controlador/Actions/LogoutAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/Github/IT-AN-AMM-v2/IT-GP-v2/src/java/Controlador/Actions/AddMensajeAction.java</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/proyectoView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/persona.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/forosView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/forosAdminView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/general.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/foros.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/personasView.jsp</file>
         </group>
     </open-files>
 </project-private>

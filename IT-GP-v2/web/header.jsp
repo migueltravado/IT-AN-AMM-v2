@@ -29,7 +29,7 @@
                 window.location.href = "loginView.jsp";
             </script>
         </s:if>
-        <div class="header" style="margin-top:18px;">
+        <div class="header">
             <div>
                 <s:url id="url_action_proyectos" action="cargaProyectos"/>
                 <a href="<s:property value="#url_action_proyectos"/>">Proyectos</a>

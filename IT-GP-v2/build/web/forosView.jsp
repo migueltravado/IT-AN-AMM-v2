@@ -10,6 +10,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="CSS/foros.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -23,10 +25,12 @@
                 <td>Descripción</td>
             </tr>
             <s:iterator value="foros" var="foro">
-                <tr>
-                    <td>Foro <s:property value="#foro.proyecto.nombre"/></td> <!--Esto tiene que ser enlace al foro-->
-                    <td><s:property value="#foro.descripcion"/></td>
-                </tr>
+                <div class="for">
+                    <tr>
+                        <td>Foro <s:property value="#foro.proyecto.nombre"/></td> <!--Esto tiene que ser enlace al foro-->
+                        <td><s:property value="#foro.descripcion"/></td>
+                    </tr>
+                </div>
             </s:iterator>
         </table>
 

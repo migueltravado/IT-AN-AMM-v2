@@ -23,10 +23,13 @@
                 <td>Descripción</td>
             </tr>
             <s:iterator value="foros" var="foro">
-                <tr>
-                    <td><s:property value="#foro.proyecto.nombre"/></td>
-                    <td><s:property value="#foro.descripcion"/></td>
-                </tr>
+                <div class="for">
+                    <tr>
+                        <td><s:property value="#foro.proyecto.nombre"/></td>
+                        <td><s:property value="#foro.descripcion"/></td>
+                    </tr>
+                </div>
+
             </s:iterator>
         </table>
 
