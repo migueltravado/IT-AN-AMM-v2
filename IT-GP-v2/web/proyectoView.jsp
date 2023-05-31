@@ -50,7 +50,7 @@
         <div>
             <h3 style="margin-bottom:10px">Tareas</h3>
             <table class="table-style">
-                <tr>
+                <tr id="titulos">
                     <td>ID</td>
                     <td>Nombre</td>
                     <td>Fecha inicio</td>

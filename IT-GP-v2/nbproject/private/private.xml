@@ -3,20 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/web/proyectoView.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/web/initProyectos.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/struts.xml</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Controlador/Actions/LogoutAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Modelo/POJOs/Tarea.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Controlador/Actions/FormularioTareaAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Controlador/Actions/ModificarTareaAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/web/adicionTareaView.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Controlador/Actions/VisualizarProyectoAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Controlador/Actions/AdicionTareaAction.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/web/tareaModificarView.jsp</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Modelo/DAO/ParticipacionDAO.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Modelo/POJOs/Participacion.java</file>
-            <file>file:/C:/Users/aleja/OneDrive/Informatica/Cuarto/2Cuatri/IT/TRABAJO/IT-AN-AMM-v2-main/IT-AN-AMM-v2-main/IT-GP-v2/src/java/Modelo/DAO/TareaDAO.java</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/proyectoView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/persona.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/forosView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/forosAdminView.jsp</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/general.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/CSS/foros.css</file>
+            <file>file:/C:/Users/empic/OneDrive/Documentos/GitHub/IT-AN-AMM-v2/IT-GP-v2/web/personasView.jsp</file>
         </group>
     </open-files>
 </project-private>

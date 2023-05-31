@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="CSS/persona.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -27,7 +28,7 @@
             </div>
             <div>
                 <s:iterator value="listaPersonas" var="persona">
-                    <div class="peg">
+                    <div class="per">
                         <b><s:property value="#persona.nombre"/> <s:property value="#persona.apellidos"/></b></br>
                         <s:text name="dni.form"/>: <s:property value="#persona.dni"/></br>
                         ID: <s:property value="#persona.idPersona"/></br>
