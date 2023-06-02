@@ -44,12 +44,12 @@ public class LoginAction extends ActionSupport {
         setPersona(dao.getPersona(persona.getUsuario()));
         // Comprobación de que el usuario existe
         if(getPersona() == null){
-            addFieldError("persona.usuario", "Usuario inexistente");
+            addFieldError("persona.usuario", getText("persona.usuario.error"));
             return;
         }
         // Comprobación de que la contraseña coincide
         if(!getPersona().getPassword().equals(password)){
-            addFieldError("persona.password", "Contraseña incorrecta");
+            addFieldError("persona.password", getText("persona.password.error"));
             return;
         }
     }

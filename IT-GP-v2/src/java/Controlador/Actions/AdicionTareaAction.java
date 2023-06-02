@@ -40,13 +40,17 @@ public class AdicionTareaAction extends ActionSupport {
         ParticipacionDAO daoParticipacion = new ParticipacionDAO();
         TareaDAO daoTarea = new TareaDAO();
         // Obtención de la tarea que precede a la nueva
-        Tarea t = daoTarea.getTarea(getIdTarea());
+        Tarea t = null;
+        if(idTarea != -1){
+            t =daoTarea.getTarea(getIdTarea());
+        }
         // Obtención de la participación asociada a la tarea (por ende, ya tiene
         // asociada un proyecto y una persona)
         Participacion part = daoParticipacion.getParticipacion(getIdParticipacion());
         // Asociación de tarea predecesoria y participación
         getTarea().setTarea(t);
         getTarea().setParticipacion(part);
+        
         // Guardado de tarea en la BBDD
         daoTarea.saveTarea(getTarea());
         return SUCCESS;
@@ -58,16 +62,16 @@ public class AdicionTareaAction extends ActionSupport {
     public void validate() {
         // Comprobación de que el nombre es rellenado
         if (tarea.getNombre() == null || tarea.getNombre().isEmpty()) {
-            addFieldError("tarea.nombre", "El nombre de la tarea es obligatorio");
+            addFieldError("tarea.nombre", getText("tarea.nombre.error"));
         }
         // Comprobación de que las fechas son rellenadas
         // En el caso del formato, se valida de forma interna con Struts2, al 
         // enlazar el campo del formulario con una variable tipo java.util.Date
         if (tarea.getFechaInicio() == null) {
-            addFieldError("tarea.fechaInicio", "La fecha de inicio es obligatoria");
+            addFieldError("tarea.fechaInicio", getText("tarea.fechaInicio.error"));
         }
         if (tarea.getFechaFin() == null) {
-            addFieldError("tarea.fechaFin", "La fecha de fin es obligatoria");
+            addFieldError("tarea.fechaFin", getText("tarea.fechaFin.error"));
         }
     }
 

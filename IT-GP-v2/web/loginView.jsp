@@ -14,9 +14,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <h1>Login</h1>
-        <s:form action="loginAction">
+    <body> 
+        <s:form action="loginAction" id="login">
+            <img src="img/logoe.png" id="Eimg">
             <s:textfield name="persona.usuario" label="Usuario"/>
             <s:password name="persona.password" label="Contraseña"/>
             <s:submit value="Login"/>

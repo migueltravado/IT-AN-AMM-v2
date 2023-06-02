@@ -18,7 +18,7 @@ import org.hibernate.Transaction;
  */
 public class RolDAO {
     public List<Rol> getRoles(){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Rol");
         List<Rol> listaRol = (List<Rol>)q1.list();
@@ -27,7 +27,7 @@ public class RolDAO {
     }
     
     public Rol getRol(int idRol){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Rol where idRol = " + idRol);
         Rol rol = (Rol)q1.uniqueResult();

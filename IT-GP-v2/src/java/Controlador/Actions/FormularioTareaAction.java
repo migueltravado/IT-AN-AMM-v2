@@ -42,6 +42,10 @@ public class FormularioTareaAction extends ActionSupport {
         // Inicialización de listas para su visualización en los select del .jsp
         setListaParticipacion(p.getParticipacions());
         setListaTarea(daoTarea.getTareasPorProyecto(getIdProyecto()));
+        Tarea t = new Tarea();
+        t.setNombre("Ninguna");
+        t.setIdTarea(-1);
+        getListaTarea().add(0, t);
         return SUCCESS;
     }
 

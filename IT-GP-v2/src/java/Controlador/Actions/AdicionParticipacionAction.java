@@ -64,8 +64,8 @@ public class AdicionParticipacionAction extends ActionSupport {
         setListaRol(daoRol.getRoles());
         // Comprobación de que la cuota por participación en el proyecto es 
         // mayor estricto que 0.
-        if (cuota <= 0) {
-            addFieldError("cuota", "La cuota debe ser un número positivo mayor que 0.");
+        if (getCuota() <= 0) {
+            addFieldError("cuota", getText("cuota.error"));
         }
         
     }

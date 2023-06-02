@@ -10,7 +10,6 @@ import java.util.Set;
  */
 public class Foro  implements java.io.Serializable {
 
-
      private Integer idForo;
      private Proyecto proyecto;
      private String descripcion;

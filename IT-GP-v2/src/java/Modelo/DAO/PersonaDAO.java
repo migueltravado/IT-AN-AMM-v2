@@ -14,7 +14,7 @@ import org.hibernate.*;
  */
 public class PersonaDAO {
     public Persona getPersona(String usuario){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Persona where usuario = '" + usuario + "'");
         Persona persona = (Persona)q1.uniqueResult();
@@ -23,7 +23,7 @@ public class PersonaDAO {
     }
     
     public Persona getPersonaId(int idPersona){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Persona where idPersona = " + idPersona);
         Persona persona = (Persona)q1.uniqueResult();
@@ -32,7 +32,7 @@ public class PersonaDAO {
     }
     
     public List<Persona> getPersonas(){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("From Persona");
         List<Persona> listaPersona = (List<Persona>)q1.list();
@@ -41,7 +41,7 @@ public class PersonaDAO {
     }
     
     public List<Persona> getPersonasNoAdmin(){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select p From Persona p where p.admin = false");
         List<Persona> listaPersona = (List<Persona>)q1.list();
@@ -50,7 +50,7 @@ public class PersonaDAO {
     }
     
     public List<Persona> getPersonasPorProyecto(int idProyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("select p From Persona p JOIN p.participacions par JOIN par.proyecto pro WHERE pro.idProyecto = " + idProyecto);
         List<Persona> listaPersona = (List<Persona>)q1.list();
@@ -59,11 +59,32 @@ public class PersonaDAO {
     }
     
     public List<Persona> getPersonasPorProyectoNotExist(int idProyecto){
-        Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Query q1 = session.createQuery("SELECT p FROM Persona p" + " WHERE NOT EXISTS " + "(SELECT par FROM p.participacions par WHERE par.proyecto.idProyecto = " + idProyecto + ") and admin != true");
         List<Persona> listaPersona = (List<Persona>)q1.list();
         tx.commit();
         return listaPersona;
+    }
+    
+    public void crearPersona(Persona p){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.save(p);
+        tx.commit();
+    }
+    
+    public void modificaPersona(Persona p){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.update(p);
+        tx.commit();
+    }
+    
+    public void eliminarPersona(Persona p){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(p);
+        tx.commit();
     }
 }

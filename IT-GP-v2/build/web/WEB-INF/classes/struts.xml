@@ -14,6 +14,10 @@
             </result>
             <result name="input">loginView.jsp</result>
         </action>
+        
+        <action name="logout" class="Controlador.Actions.LogoutAction">
+            <result name="success">loginView.jsp</result>
+        </action>
     </package>
     
     <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
@@ -87,6 +91,37 @@
             <result name="success">busquedaPersonaParticipacionView.jsp</result>
             <result name="input">busquedaPersonaParticipacionView.jsp</result>
         </action>
+        <!-- Acción que redirige a la vista para poder crear una nueva persona
+        -->
+        <action name="creaPersonaButton">
+            <result>personasCreateView.jsp</result>
+        </action>
+        
+        <action name="crearPersona" class="Controlador.Actions.CUDPersonaAction" method="crear">
+            <result type="chain" name="success">
+                <param name="actionName">cargaPersonasAdmin</param>
+            </result>
+            <result name="input">personasCreateView.jsp</result>
+        </action>
+        
+        <action name="modificaPersona" class="Controlador.Actions.CUDPersonaAction" method="modificar">
+            <result name="success">personasModificarView.jsp</result>
+        </action>
+        
+        <action name="modPersona" class="Controlador.Actions.CUDPersonaAction">
+            <result type="chain" name="success">
+                <param name="actionName">cargaPersonasAdmin</param>
+            </result>
+            <result name="input">personasModificarView.jsp</result>
+        </action>
+        
+        <action name="eliminaPersona" class="Controlador.Actions.CUDPersonaAction" method="eliminar">
+            <result type="chain" name="success">
+                <param name="actionName">cargaPersonasAdmin</param>
+            </result>
+        </action>
+        
+        
     </package>
     
     <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
@@ -131,6 +166,23 @@
             </result>
             <result name="input">adicionTareaView.jsp</result>
         </action>
+        
+        <action name="modificaTarea" class="Controlador.Actions.ModificarTareaAction" method="modificar">
+            <result name="success">tareaModificarView.jsp</result>
+        </action>
+        
+        <action name="modTarea" class="Controlador.Actions.ModificarTareaAction">
+            <result name="success" type="chain">
+                <param name="actionName">visualizarProyectos</param>
+            </result>
+            <result name="input">tareaModificarView.jsp</result>
+            
+        </action>
+        
+        <action name="eliminarTarea" class="Controlador.Actions.EliminarTareaAction" method="eliminar">
+            <result name="sucess">proyectoView.jsp</result>
+        </action>
+        
     </package>
     
     <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
@@ -139,5 +191,27 @@
         <action name="cargaRoles" class="">
             
         </action>
+    </package>
+    
+    <package name="foro" extends="struts-default">
+        <action name="cargaForos" class="Controlador.Actions.CargaForoAction">
+            <result name="success">forosView.jsp</result>
+        </action>
+        
+        <action name="getForo" class="Controlador.Actions.CargaMensajesAction">
+            <result name="success">mensajeForoView.jsp</result>
+        </action>
+        
+        <action name="addMensaje" class="Controlador.Actions.AddMensajeAction">
+            <result name="success">mensajeForoView.jsp?idForo=1</result>
+            <result name="input">mensajeForoView.jsp?idForo=1</result>
+        </action>
+        
+        <action name="crearForo" class="Controlador.Actions.CrearForoAction" >
+            <result type="chain" name="success">
+                <param name="actionName">visualizarProyectos</param>
+            </result>
+        </action>
+        
     </package>
 </struts>
