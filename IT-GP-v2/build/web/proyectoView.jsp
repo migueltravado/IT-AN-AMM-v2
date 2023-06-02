@@ -35,7 +35,13 @@
             <div>
                 <h4 style="margin-bottom:10px">Foro: </h4>
                 <s:if test="%{proyecto.foro == null}">
-                    No existe foro
+                    
+                    <s:form action="crearForo">
+                        <s:hidden name="idProyecto" value="%{proyecto.idProyecto}"/>
+                        <s:textfield name="descripcion" label="Descripcion"/>
+                        <s:submit value="Crear Foro"/>
+                    </s:form>
+                    
                 </s:if>
                 <s:else>
                     <div>

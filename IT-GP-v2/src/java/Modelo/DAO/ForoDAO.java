@@ -56,4 +56,11 @@ public class ForoDAO {
         return foro;
     }
     
+    public void crearForo(Foro f){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.save(f);
+        tx.commit();
+    }
+    
 }

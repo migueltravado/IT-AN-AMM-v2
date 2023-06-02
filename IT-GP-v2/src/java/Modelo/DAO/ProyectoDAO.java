@@ -45,7 +45,6 @@ public class ProyectoDAO {
         Transaction tx = session.beginTransaction();
         session.delete(proyecto);
         tx.commit();
-        return;
     }
     
     public void updateProyecto(Proyecto proyecto){
@@ -53,7 +52,6 @@ public class ProyectoDAO {
         Transaction tx = session.beginTransaction();
         session.update(proyecto);
         tx.commit();
-        return;
     }
     
     public void saveProyecto(Proyecto proyecto){
@@ -61,6 +59,5 @@ public class ProyectoDAO {
         Transaction tx = session.beginTransaction();
         session.save(proyecto);
         tx.commit();
-        return;
     }
 }
