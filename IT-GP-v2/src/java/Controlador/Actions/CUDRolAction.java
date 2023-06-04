@@ -5,6 +5,7 @@
  */
 package Controlador.Actions;
 
+import Modelo.DAO.RolDAO;
 import Modelo.POJOs.Rol;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -12,30 +13,31 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author aleja
  */
-public class CUDRol extends ActionSupport {
+public class CUDRolAction extends ActionSupport {
     
     private Rol rol;
     private int idRol;
     
-    public CUDRol() {
+    public CUDRolAction() {
     }
     
     //AQUI HACEMOS EL MODIFICARROL
     public String execute() throws Exception {
-        
+        RolDAO rolDAO = new RolDAO();
+        setRol(rolDAO.getRol(getIdRol()));
         return SUCCESS;
     }
     
     //ESTO ES MODROL
     public String modificar() throws Exception{
-        return SUCCESS;
-    }
-    
-    public String eliminar() throws Exception{
+        RolDAO rolDAO = new RolDAO();
+        rolDAO.modificarRol(getRol());
         return SUCCESS;
     }
     
     public String addRol() throws Exception{
+        RolDAO rolDAO = new RolDAO();
+        rolDAO.crearRol(getRol());
         return SUCCESS;
     }
 
