@@ -87,6 +87,12 @@ body h1{
 a {
     color: #007bff;
     text-decoration: none;
+    transition: font-weight 0.3s ease;
+}
+
+a:hover {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 .button,
