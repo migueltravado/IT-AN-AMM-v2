@@ -29,7 +29,7 @@
                     <s:url id="url_action" action="visualizarProyectos">
                         <s:param name="idProyecto" value="#proy.idProyecto"/>
                     </s:url>
-                    <a href="<s:property value="#url_action"/>"><b><s:property value="#proy.idProyecto"/> <s:property value="#proy.nombre"/></b></a><br>
+                    <a id="enlsub" href="<s:property value="#url_action"/>"><b><s:property value="#proy.idProyecto"/> <s:property value="#proy.nombre"/></b></a><br>
                     <s:property value="#proy.fechaInicio"/> - <s:property value="#proy.fechaFin"/><br>
                     <s:property value="#proy.descripcion"/>
                 </div>

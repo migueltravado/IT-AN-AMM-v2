@@ -26,7 +26,7 @@
                         <s:url id="url_action" action="getForo">
                             <s:param name="idForo" value="#foro.idForo"/>
                         </s:url>
-                        <td id="ops"><a href="<s:property value='#url_action'/>">Foro de <s:property value='#foro.proyecto.nombre'/></a></td>
+                        <td id="ops"><a id="enlsub" href="<s:property value='#url_action'/>">Foro de <s:property value='#foro.proyecto.nombre'/></a></td>
                         <td id="ops"><s:property value="#foro.descripcion"/></td>
                     </tr>
                 </div>

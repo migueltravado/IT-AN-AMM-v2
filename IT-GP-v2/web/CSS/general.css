@@ -84,13 +84,13 @@ body h1{
 
 /* Estilos adicionales */
 
-a {
+#enlsub {
     color: #007bff;
     text-decoration: none;
     transition: font-weight 0.3s ease;
 }
 
-a:hover {
+#enlsub:hover {
     font-weight: bold;
     text-decoration: underline;
 }
