@@ -17,7 +17,7 @@
     </head>
     <body>
         <s:include value="/header.jsp"/>
-        <h1>Edición Proyecto</h1>
+        <h1>Creación proyecto</h1>
         <s:form action="crearProyecto">
             <s:textfield name="proyecto.idProyecto" label="Id" readonly="true"/>
             <s:textfield name="proyecto.nombre" label="Nombre"/>
@@ -25,9 +25,6 @@
             <s:textfield name="proyecto.fechaInicio" label="Fecha Inicio"/>
             <s:textfield name="proyecto.fechaFin" label="Fecha Fin"/>
             <s:submit value="Crear"/>
-        </s:form>
-        <s:form action="cargarProyectos">
-            <s:submit value="Cancelar"/>
         </s:form>
         <s:include value="/footer.jsp"/>
     </body>

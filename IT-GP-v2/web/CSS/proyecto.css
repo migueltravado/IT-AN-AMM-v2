@@ -16,3 +16,47 @@ div.peg {
     margin-bottom: 20px;
 }
 
+/* Estilos para la tabla */
+#table_bus {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#table_bus td, #table_bus th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#table_bus tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilos para los encabezados de columna */
+#table_bus th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Estilos para las filas impares */
+#table_bus tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+
+/* Estilos para el botón "Añadir" */
+#table_bus .add-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  transition-duration: 0.4s;
+}
+
+#table_bus .add-button:hover {
+  background-color: #45a049;
+}

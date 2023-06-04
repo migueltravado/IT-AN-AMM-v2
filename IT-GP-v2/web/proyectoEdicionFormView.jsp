@@ -27,7 +27,6 @@
             <s:submit value="Editar"/>
         </s:form>
         <s:form action="visualizarProyectos">
-            <s:submit value="Cancelar"/>
             <s:hidden name="idProyecto" value="%{proyecto.idProyecto}"/>
         </s:form>
         <s:include value="/footer.jsp"/>

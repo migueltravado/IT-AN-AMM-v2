@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="CSS/general.css">
-        <link rel="stylesheet" type="text/css" href="CSS/persona.css">
+        <link rel="stylesheet" type="text/css" href="CSS/proyecto.css">
         <s:head/>
     </head>
     <body>
@@ -23,13 +23,13 @@
             <s:hidden name="idProyecto" value="%{idProyecto}"/>
             <s:submit value="Buscar" key="Buscar"/>
         </s:form>
-        <table border="1">
+        <table border="1" id="table_bus">
             <tr>
                 <td><s:text name="ID"/></td>
-                <td><s:text name="Nombre"/>Nombre</td>
-                <td><s:text name="Apellidos"/>Apellido</td>
+                <td><s:text name="Nombre"/></td>
+                <td><s:text name="Apellidos"/></td>
                 <td><s:text name="Dni"/></td>
-                <td><s:text name="Añadir"/>Añadir</td>
+                <td><s:text name="Añadir"/></td>
             </tr>
             <s:iterator value="listaPersona" var="pers">
                 <tr>

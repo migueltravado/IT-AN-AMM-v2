@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <s:head/>
         <link rel="stylesheet" type="text/css" href="CSS/general.css">
-        <link rel="stylesheet" type="text/css" href="CSS/persona.css">
+        <link rel="stylesheet" type="text/css" href="CSS/proyecto.css">
         <title>JSP Page</title>
     </head>
     <body>
