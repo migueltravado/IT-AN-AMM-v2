@@ -188,8 +188,21 @@
     <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
     entidad Rol -->
     <package name="roles" extends="struts-default">
-        <action name="cargaRoles" class="">
-            
+        <action name="cargaRoles" class="Controlador.Actions.CargaRoles">
+            <result name="success">rolesAdminView.jsp</result>
+        </action>
+        <action name="crearRol" class="Controlador.Actions.CargaRoles">
+            <result name="success">rolesAdminView.jsp</result>
+        </action>
+        <action name="modificarRol" class="Controlador.Actions.CargaRoles">
+            <result name="success">rolModificar.jsp</result>
+        </action>
+        <action name="modRol" class="Controlador.Actions.CargaRoles">
+            <result name="success">rolesAdminView.jsp</result>
+            <result name="input">rolesAdminView.jsp</result>
+        </action>
+        <action name="eliminarRol" class="Controlador.Actions.CargaRoles">
+            <result name="success">rolesAdminView.jsp</result>
         </action>
     </package>
     

@@ -34,4 +34,25 @@ public class RolDAO {
         tx.commit();
         return rol;
     }
+    
+    public void crearRol(Rol rol){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.save(rol);
+        tx.commit();
+    }
+    
+    public void eliminarRol(Rol rol){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(rol);
+        tx.commit();
+    }
+    
+    public void modificarRol(Rol rol){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Transaction tx = session.beginTransaction();
+        session.update(rol);
+        tx.commit();
+    }
 }

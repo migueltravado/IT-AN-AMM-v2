@@ -45,7 +45,7 @@
                 </div>
                 <div>
                     <s:url id="url_action_roles" action="cargaRoles"/>
-                    <a href="<s:property value="#url_action_proyectos"/>">Roles</a>
+                    <a href="<s:property value="#url_action_roles"/>">Roles</a>
                 </div>
             </s:if>
             <div class="logout">
