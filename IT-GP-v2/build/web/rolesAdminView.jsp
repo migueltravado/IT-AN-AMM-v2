@@ -15,7 +15,7 @@
     <body>
         <s:include value="/header.jsp"/>
         <h1>ROLES</h1>
-        <s:form action="crearRol">
+        <s:form action="crearRolVista">
             <s:submit value="Crear Rol" />
         </s:form>
         <table>
@@ -24,7 +24,6 @@
                 <td>Nombre</td>
                 <td>Descripción</td>
                 <td>Modificar</td>
-                <td>Eliminar</td>
             </tr>
             <s:iterator value="roles" var="rol">
                 <tr>
@@ -32,12 +31,8 @@
                     <td><s:property value="#rol.nombre" /></td>
                     <td><s:property value="#rol.descripcion" /></td>
                     <td><s:form action="modificaRol">
-                            <s:hidden value="#rol.idRol" name="idRol"/>
+                            <s:hidden value="%{#rol.idRol}" name="idRol"/>
                             <s:submit value="Modificar" />
-                        </s:form></td>
-                    <td><s:form action="eliminaRol">
-                            <s:hidden value="#rol.idRol" name="idRol"/>
-                            <s:submit value="Eliminar" />
                         </s:form></td>
                 </tr>
             </s:iterator>

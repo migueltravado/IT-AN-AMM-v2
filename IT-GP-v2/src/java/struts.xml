@@ -188,21 +188,26 @@
     <!-- Paquete funcional encargado de la gestión de acciones relacionadas con la
     entidad Rol -->
     <package name="roles" extends="struts-default">
-        <action name="cargaRoles" class="Controlador.Actions.CargaRoles">
+        <action name="cargaRoles" class="Controlador.Actions.CargaRolesAction">
             <result name="success">rolesAdminView.jsp</result>
         </action>
-        <action name="crearRol" class="Controlador.Actions.CargaRoles">
-            <result name="success">rolesAdminView.jsp</result>
+        <action name="crearRol" class="Controlador.Actions.CUDRolAction" method="addRol">
+            <result type="chain" name="success">
+                <param name="actionName">cargaRoles</param>
+            </result>
         </action>
-        <action name="modificarRol" class="Controlador.Actions.CargaRoles">
-            <result name="success">rolModificar.jsp</result>
+        <action name="crearRolVista">
+            <result>addRolView.jsp</result>
         </action>
-        <action name="modRol" class="Controlador.Actions.CargaRoles">
-            <result name="success">rolesAdminView.jsp</result>
-            <result name="input">rolesAdminView.jsp</result>
+        
+        <action name="modificaRol" class="Controlador.Actions.CUDRolAction">
+            <result name="success">rolModificarView.jsp</result>
         </action>
-        <action name="eliminarRol" class="Controlador.Actions.CargaRoles">
-            <result name="success">rolesAdminView.jsp</result>
+        <action name="modRol" class="Controlador.Actions.CUDRolAction" method="modificar">
+            <result type="chain" name="success">
+                <param name="actionName">cargaRoles</param>
+            </result>
+            <result name="input">rolModificar.jsp</result>
         </action>
     </package>
     

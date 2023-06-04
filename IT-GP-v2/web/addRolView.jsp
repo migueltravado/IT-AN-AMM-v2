@@ -14,7 +14,7 @@
     </head>
     <body>
          <s:include value="/header.jsp"/>
-         <s:form action="modRol">
+         <s:form action="crearRol">
              <s:hidden name="rol.idRol" value="%{rol.idRol}" />
              <s:textfield name="rol.nombre" label="Nombre" />
              <s:textfield name="rol.descripcion" label="Descripcion" />

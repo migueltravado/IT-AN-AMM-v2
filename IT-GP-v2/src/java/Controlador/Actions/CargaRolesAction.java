@@ -14,11 +14,11 @@ import java.util.List;
  *
  * @author aleja
  */
-public class CargaRoles extends ActionSupport {
+public class CargaRolesAction extends ActionSupport {
     
     private List<Rol> roles;
     
-    public CargaRoles() {
+    public CargaRolesAction() {
     }
     
     public String execute() throws Exception {
