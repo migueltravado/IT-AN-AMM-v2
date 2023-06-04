@@ -25,4 +25,5 @@
              <s:submit value="Enviar" />
          </s:form>
     </body>
+    <s:include value="/footer.jsp"/>
 </html>
