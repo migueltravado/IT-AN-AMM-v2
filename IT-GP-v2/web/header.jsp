@@ -10,17 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <style>
-            .header, .buttons-list {
-                display: block;
-                margin: 0;
-            }
-
-            .header div,  .buttons-list div{
-                display: inline-block;
-                margin: 0;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="CSS/header.css">
         <title>JSP Page</title>
     </head>
     <body>

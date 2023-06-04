@@ -4,22 +4,22 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 31-may-2023, 17:32:28
+    Created on : 04-jun-2023, 14:58:37
     Author     : empic
 */
-/*Cajas contenidos foro*/
-
-/*div.for {
-  background-color: #6c4675;
-  color: #333;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+/*div.rol {
+    background-color: #b58835;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }*/
 
+/* Tabla */
+
 #ops {
-    background-color: c493c8;
+    background-color: #B5B2B2;
     color: #333;
     padding: 20px;
     border-radius: 8px;

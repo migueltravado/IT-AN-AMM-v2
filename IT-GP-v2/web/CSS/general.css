@@ -39,8 +39,8 @@ body h1{
 }
 
 /*Tablas*/
-.table-style tr:nth-child(odd){
-    background-color: rgba(255, 204, 0, 0.9);
+#titulos{
+    background-color: #FFC94D;
 }
 
 .table-style td,
@@ -80,14 +80,7 @@ body h1{
 
 /*Cajas contenido proyecto*/
 
-div.peg {
-    background-color: #FFC94D;
-    color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
+
 
 /* Estilos adicionales */
 

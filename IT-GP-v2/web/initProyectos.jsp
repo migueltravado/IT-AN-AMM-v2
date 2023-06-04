@@ -12,12 +12,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <s:head/>
         <link rel="stylesheet" type="text/css" href="CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="CSS/proyecto.css">
         <title>JSP Page</title>
     </head>
     <body>
         <div class="contenedor">
             <s:include value="/header.jsp"/>
             <h1>Proyectos</h1>
+            <s:if test="%{#session.logged.admin == true}">
+                <s:form action="formularioProyecto">
+                    <s:submit value="Crear proyecto"/>
+                </s:form>
+            </s:if>
             <s:iterator value="listaProyectos" var="proy">
                 <div class="peg">
                     <s:url id="url_action" action="visualizarProyectos">
@@ -29,11 +35,6 @@
                 </div>
                 <br>
             </s:iterator>
-            <s:if test="%{#session.logged.admin == true}">
-                <s:form action="formularioProyecto">
-                    <s:submit value="Crear proyecto"/>
-                </s:form>
-            </s:if>
             <s:include value="/footer.jsp"/>
         </div>
     </body>

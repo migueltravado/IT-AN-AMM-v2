@@ -10,32 +10,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="CSS/roles.css">
         <title>JSP Page</title>
     </head>
     <body>
         <s:include value="/header.jsp"/>
-        <h1>ROLES</h1>
+        <h1>Roles</h1>
         <s:form action="crearRolVista">
             <s:submit value="Crear Rol" />
         </s:form>
         <table>
-            <tr>
-                <td>ID</td>
-                <td>Nombre</td>
-                <td>Descripción</td>
-                <td>Modificar</td>
-            </tr>
             <s:iterator value="roles" var="rol">
-                <tr>
-                    <td><s:property value="#rol.idRol" /></td>
-                    <td><s:property value="#rol.nombre" /></td>
-                    <td><s:property value="#rol.descripcion" /></td>
-                    <td><s:form action="modificaRol">
-                            <s:hidden value="%{#rol.idRol}" name="idRol"/>
-                            <s:submit value="Modificar" />
-                        </s:form></td>
-                </tr>
-            </s:iterator>
-        </table>
-    </body>
+                <div class="rol">
+                    <tr>
+                        <td id="ops">ID:<s:property value="#rol.idRol" /> / <s:property value="#rol.nombre" /></td>
+                        <td id="ops"><s:property value="#rol.descripcion" /></td>
+                        <td><s:form action="modificaRol">
+                    </div>
+                    <s:hidden value="%{#rol.idRol}" name="idRol"/>
+                    <s:submit value="Modificar"/>
+                </s:form></td>
+        </tr>
+    </s:iterator>
+</table>
+<s:include value="/footer.jsp"/>
+</body>
 </html>

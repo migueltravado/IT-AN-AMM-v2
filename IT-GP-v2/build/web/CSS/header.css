@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04-jun-2023, 15:20:38
+    Author     : empic
+*/
+.header, .buttons-list {
+    display: block;
+    margin: 0;
+}
+
+.header div,  .buttons-list div{
+    display: inline-block;
+    margin: 0;
+}

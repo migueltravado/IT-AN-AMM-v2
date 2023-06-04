@@ -9,11 +9,33 @@ and open the template in the editor.
 */
 /*Cajas contenidos foro*/
 
-div.for {
-  background-color: #785d90;
+/*div.for {
+  background-color: #6c4675;
   color: #333;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
+}*/
+
+#ops {
+    background-color: c493c8;
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+table td:last-child form input[type="submit"] {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+table td:last-child form input[type="submit"]:hover {
+  background-color: #1e7d39;
 }

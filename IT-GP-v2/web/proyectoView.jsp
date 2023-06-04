@@ -12,10 +12,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <s:head/>
         <link rel="stylesheet" type="text/css" href="CSS/general.css">
+        <link rel="stylesheet" type="text/css" href="CSS/proyecto.css">
+        <link rel="stylesheet" type="text/css" href="CSS/persona.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <link rel="stylesheet" type="text/css" href="CSS/general.css">
         <s:include value="/header.jsp"/>
         <h1 style="margin-bottom:10px"><s:property value="proyecto.nombre"/></h1>
         <div>
@@ -128,7 +129,7 @@
         <s:if test="%{#session.logged.admin == true}">
             <div style="margin:10px 0;">
                 <s:iterator value="listaParticipacion" var="part">
-                    <div class="peg">
+                    <div class="per">
                         Participante: <s:property value="#part.persona.nombre"/> <s:property value="#part.persona.apellidos"/></br>
                         Rol: <s:property value="#part.rol.nombre"/></br>
                         Cuota: <s:property value="#part.cuota"/></br>
