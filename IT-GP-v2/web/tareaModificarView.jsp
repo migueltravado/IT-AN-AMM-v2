@@ -34,6 +34,7 @@
                 <s:hidden name="tarea.idTarea" value="%{tarea.idTarea}"/>
                 <s:submit key="mod.button"/>
             </s:form>
+            <s:include value="/footer.jsp"/>
         </s:i18n>
     </body>
 </html>

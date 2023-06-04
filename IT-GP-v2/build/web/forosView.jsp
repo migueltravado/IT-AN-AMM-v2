@@ -27,12 +27,16 @@
             <s:iterator value="foros" var="foro">
                 <div class="for">
                     <tr>
-                        <td>Foro <s:property value="#foro.proyecto.nombre"/></td> <!--Esto tiene que ser enlace al foro-->
+                        <s:url id="url_action" action="getForo">
+                            <s:param name="idForo" value="#foro.idForo"/>
+                        </s:url>
+                        <td><a href="<s:property value='#url_action'/>">Foro <s:property value='#foro.proyecto.nombre'/></a></td>
                         <td><s:property value="#foro.descripcion"/></td>
                     </tr>
                 </div>
             </s:iterator>
         </table>
+        <s:include value="/footer.jsp"/>
 
     </body>
 </html>

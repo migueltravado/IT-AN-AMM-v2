@@ -34,6 +34,7 @@
                     <s:submit value="Crear proyecto"/>
                 </s:form>
             </s:if>
+            <s:include value="/footer.jsp"/>
         </div>
     </body>
 </html>

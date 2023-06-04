@@ -25,6 +25,7 @@
                 <s:textfield name="persona.password" key="password.form" value="%{persona.password}"/>
                 <s:submit key="enviar.button"/>
             </s:form>
+            <s:include value="/footer.jsp"/>
         </s:i18n>
     </body>
 </html>

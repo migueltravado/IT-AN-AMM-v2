@@ -34,5 +34,6 @@
             <s:textarea name="mensaje.contenido" />
             <s:submit value="Enviar"/>
         </s:form>
+        <s:include value="/footer.jsp"/>
     </body>
 </html>

@@ -59,6 +59,7 @@
                     </br>
                 </s:iterator>
             </div>
+            <s:include value="/footer.jsp"/>
         </s:i18n>
     </body>
 </html>

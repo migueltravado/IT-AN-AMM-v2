@@ -27,6 +27,7 @@
             <s:hidden name="idProyecto" key="%{idProyecto}"/>
             <s:submit value="Añadir"/>
         </s:form>
+        <s:include value="/footer.jsp"/>
             </s:i18n>
     </body>
 </html>

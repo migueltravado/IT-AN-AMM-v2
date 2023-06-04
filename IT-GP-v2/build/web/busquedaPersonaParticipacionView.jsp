@@ -45,8 +45,10 @@
                     </td>
                 </tr>
             </s:iterator>
+                
             </s:i18n>
         </table>
+        <s:include value="/footer.jsp"/>
 
     </body>
 </html>

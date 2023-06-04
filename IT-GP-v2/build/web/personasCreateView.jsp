@@ -24,6 +24,8 @@
                 <s:textfield name="persona.password" key="password.form"/>
                 <s:submit key="enviar.button"/>
             </s:form>
+            <s:include value="/footer.jsp"/>
         </s:i18n>
+        
     </body>
 </html>

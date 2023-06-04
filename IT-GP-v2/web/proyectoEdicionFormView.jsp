@@ -29,5 +29,6 @@
             <s:submit value="Cancelar"/>
             <s:hidden name="idProyecto" value="%{proyecto.idProyecto}"/>
         </s:form>
+        <s:include value="/footer.jsp"/>
     </body>
 </html>

@@ -28,5 +28,6 @@
         <s:form action="cargarProyectos">
             <s:submit value="Cancelar"/>
         </s:form>
+        <s:include value="/footer.jsp"/>
     </body>
 </html>
